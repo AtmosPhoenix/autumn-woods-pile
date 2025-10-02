@@ -65,9 +65,10 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   //let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
   let contentSection = html.getElementsByClassName("window-content")[0];
   let detailsSection = contentSection.getElementsByTagName("section")[3]; // YEAH I KNOWWWW KILL ME
-  if (detailsSection) {
-    console.log("Found details section, I hope...");
-    console.log(detailsSection);
+  let propSection = detailsSection.getElementsByTagName("div")[4];
+  let boxes = detailsSection.getElementsByTagName("div"); // HEHE THE AI IS MOULDING TO MEEEEE
+  if (propSection) {
+    console.log("OwO is that the props section???!!!! WIT DA CHEKKKNBOWXESSSS????");
   }
   else {
     console.error("Could not find details section");
@@ -75,9 +76,20 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   //if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
 
   // Lifesteal checkbox
+  let newCheckbox = detailsSection.createElement("div");
+  newCheckbox.innerHTML = `
+    <label class="checkbox">
+      <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
+      Lifesteal
+    </label>
+  `
+  boxes.appendChild(newCheckbox);
+
+  // let her be insane for a bit pleasE?
   let lifestealHTML =document.createElement("div");
   lifestealHTML.innerHTML = `
     <h1>AUTUMN DID IT BITCH!!!</h1>
+    <p>Code Witch (tm)</p>
     <div class="form-group">
       <label class="checkbox">
         <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
