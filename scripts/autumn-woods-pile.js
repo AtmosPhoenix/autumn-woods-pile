@@ -78,7 +78,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   // Lifesteal checkbox
   let newCheckbox = document.createElement("label");
   newCheckbox.innerHTML = `
-    <dnd5e-checkbox name="system.properties.lifesteal" tabindex="0"/>
+    <dnd5e-checkbox name="system.properties.lifesteal" tabindex="0"></dnd5e-checkbox>
     <div>
       <div class="checked">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="fill: var(--checkbox-icon-color, #000); width: var(--checkbox-icon-size, 68%);">
