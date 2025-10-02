@@ -62,25 +62,30 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   console.log(html);
 
   // Attempt to find the properties container
-  let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
-  if (propSection) {
-    console.log("Found properties container");
-    console.log(propSection);
+  //let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
+  let contentSection = html.getElementsByClassName("window-content")[0];
+  let detailsSection = contentSection.getElementsByClassName("details")[0];
+  if (detailsSection) {
+    console.log("Found details section");
+    console.log(detailsSection);
   }
   else {
-    console.error("Could not find properties container");
+    console.error("Could not find details section");
   }
-  if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
+  //if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
 
   // Lifesteal checkbox
   const lifestealHTML = `
+    <div>
+    <h1>AUTUMN DID IT BITCH!!!</h1>
     <div class="form-group">
       <label class="checkbox">
         <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
         Lifesteal
       </label>
+    </div>
     </div>`;
-  propSection.append(lifestealHTML);
+  detailsSection.appendChild(lifestealHTML);
 
   // Healing Dice input
   const healField = `
