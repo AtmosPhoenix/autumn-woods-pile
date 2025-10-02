@@ -102,7 +102,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     </div>
     <span>Lifesteal</span>
   `
-  boxes.className = "checkbox";
+  newCheckbox.className = "checkbox";
   boxes.appendChild(newCheckbox);
 
   // let her be insane for a bit pleasE?
