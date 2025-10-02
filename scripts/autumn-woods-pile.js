@@ -3,15 +3,16 @@ Hooks.once("init", () => {
   game.modules.get("healing-on-hit").api = {
     // You can add API methods here if needed
   };
+  // Register custom module settings
+  game.settings.register("autumn-woods-pile", "healingDice", {
+    scope: "world",
+    config: false,
+    type: String,
+    default: ""
+  });
 });
 
-// Register custom module settings
-game.settings.register("autumn-woods-pile", "healingDice", {
-  scope: "world",
-  config: false,
-  type: String,
-  default: ""
-});
+
 
 Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
   try {
