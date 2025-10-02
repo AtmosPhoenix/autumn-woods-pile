@@ -28,6 +28,9 @@ Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
 
 Hooks.on("renderItemSheet5e", (app, html, data) => {
   console.log("===================== AUTUMWOODS RENDER ITEM SHEET =====================");
+  console.log(app);
+  console.log(app.object);
+  console.log(app.object.type);
 
   if (!app?.object || app.object.type !== "weapon") return;
   console.log("found weapon ok")
