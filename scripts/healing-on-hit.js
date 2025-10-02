@@ -1,3 +1,19 @@
+Hooks.once("init", () => {
+  // Register module flag scope
+  CONFIG.healingOnHit = true; // optional marker
+  console.log("AWP: Healing on Hit | Initializing module flags");
+
+  // Register flag for healing dice
+  game.settings.register("healing-on-hit", "healingDice", {
+    scope: "world",
+    config: false,
+    type: String,
+    default: ""
+  })
+
+  console.log("AWP: Healing on Hit | Initializing module flags");
+});
+
 Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
   try {
     if (!item || item.type !== "weapon") return;
