@@ -76,7 +76,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   //if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
 
   // Lifesteal checkbox
-  let newCheckbox = detailsSection.createElement("div");
+  let newCheckbox = document.createElement("div");
   newCheckbox.innerHTML = `
     <label class="checkbox">
       <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
