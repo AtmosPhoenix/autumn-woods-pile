@@ -66,7 +66,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   let contentSection = html.getElementsByClassName("window-content")[0];
   let detailsSection = contentSection.getElementsByTagName("section")[3]; // YEAH I KNOWWWW KILL ME
   let propSection = detailsSection.getElementsByTagName("div")[4];
-  let boxes = detailsSection.getElementsByTagName("div")[0]; // HEHE THE AI IS MOULDING TO MEEEEE
+  let boxes = propSection.getElementsByTagName("div")[0]; // HEHE THE AI IS MOULDING TO MEEEEE
   if (propSection) {
     console.log("OwO is that the props section???!!!! WIT DA CHEKKKNBOWXESSSS????");
   }
@@ -79,7 +79,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   let newCheckbox = document.createElement("div");
   newCheckbox.innerHTML = `
     <label class="checkbox">
-      <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
+      <input type="checkbox" name="system.properties.lifesteal" tabindex="0" disabled=""/>
       Lifesteal
     </label>
   `
