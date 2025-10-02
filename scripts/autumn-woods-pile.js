@@ -85,7 +85,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
       </label>
     </div>;`
   detailsSection.appendChild(lifestealHTML);
-
+  /*
   // Healing Dice input
   const healField = `
     <div class="form-group">
@@ -94,4 +94,5 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
       <p class="notes">Dice formula (e.g. 1d6, 2d4+1). Rolled only if weapon has Lifesteal.</p>
     </div>`;
   propSection.append(healField);
+  */
 });
