@@ -59,7 +59,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   const currentDice = item.getFlag("autumn-woods-pile", "healingDice") || "";
   const lifestealChecked = item.system.properties?.lifesteal ? "checked" : "";
 
-  console.log(item)
+  console.log(html);
 
   // Attempt to find the properties container
   let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
