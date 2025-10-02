@@ -1,0 +1,16 @@
+{
+  "id": "autumn-woods-pile",
+  "title": "AutumnWoods Pile",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "flags": {
+    "canUpload": true
+  },
+  "description": "",
+  "scripts": [
+    "scripts/healing-on-hit.js"
+  ]
+}
