@@ -29,11 +29,15 @@ Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
 Hooks.on("renderItemSheet5e", (app, html, data) => {
   console.log("===================== AUTUMWOODS RENDER ITEM SHEET =====================");
   console.log(app);
-  console.log(app.object);
-  console.log(app.object.type);
+  console.log("app.document.type:")
+  console.log(app.document.type);
 
-  if (!app?.object || app.object.type !== "weapon") return;
-  console.log("found weapon ok")
+  if (app.object.type !== "weapon") {
+    console.warn("This ain't a weapon yo")
+    return;
+  } else {
+    console.log("found weapon ok")
+  }
 
   const item = app.object;
   const currentDice = item.getFlag("healing-on-hit", "healingDice") || "";
