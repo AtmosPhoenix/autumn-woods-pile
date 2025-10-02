@@ -1,18 +1,16 @@
 Hooks.once("init", () => {
-  // Register module flag scope
-  CONFIG.healingOnHit = true; // optional marker
   console.warn("===================== AUTUMWOODS INIT =====================");
-  console.log("AWP: Healing on Hit | Initializing module flags");
+  game.modules.get("healing-on-hit").api = {
+    // You can add API methods here if needed
+  };
+});
 
-  // Register flag for healing dice
-  game.settings.register("healing-on-hit", "healingDice", {
-    scope: "world",
-    config: false,
-    type: String,
-    default: ""
-  })
-
-  console.log("AWP: Healing on Hit | Initializing module flags");
+// Register custom module settings
+game.settings.register("autumn-woods-pile", "healingDice", {
+  scope: "world",
+  config: false,
+  type: String,
+  default: ""
 });
 
 Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
@@ -22,7 +20,7 @@ Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
     const props = item.system.properties || {};
     if (!props.lifesteal) return;
 
-    const healingFormula = item.getFlag("healing-on-hit", "healingDice");
+    const healingFormula = item.getFlag("autumn-woods-pile", "healingDice");
     if (!healingFormula) return;
 
     const healingRoll = await new Roll(healingFormula).roll({async: true});
@@ -57,7 +55,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   }
 
   const item = app.document; // I sure hope that's right hehe~!
-  const currentDice = item.getFlag("healing-on-hit", "healingDice") || "";
+  const currentDice = item.getFlag("autumn-woods-pile", "healingDice") || "";
   const lifestealChecked = item.system.properties?.lifesteal ? "checked" : "";
 
   console.log(item)
@@ -87,7 +85,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   const healField = `
     <div class="form-group">
       <label>Healing Dice</label>
-      <input type="text" name="flags.healing-on-hit.healingDice" value="${currentDice}" data-dtype="String"/>
+      <input type="text" name="flags.autumn-woods-pile.healingDice" value="${currentDice}" data-dtype="String"/>
       <p class="notes">Dice formula (e.g. 1d6, 2d4+1). Rolled only if weapon has Lifesteal.</p>
     </div>`;
   propSection.append(healField);
