@@ -64,7 +64,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   // Attempt to find the properties container
   //let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
   let contentSection = html.getElementsByClassName("window-content")[0];
-  let detailsSection = contentSection.getElementsByTagName("section")[2]; // YEAH I KNOWWWW KILL ME
+  let detailsSection = contentSection.getElementsByTagName("section")[3]; // YEAH I KNOWWWW KILL ME
   if (detailsSection) {
     console.log("Found details section, I hope...");
     console.log(detailsSection);
