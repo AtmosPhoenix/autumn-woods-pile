@@ -117,14 +117,30 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
       </label>
     </div>;`
   detailsSection.appendChild(lifestealHTML);
-  /*
-  // Healing Dice input
-  const healField = `
-    <div class="form-group">
-      <label>Healing Dice</label>
-      <input type="text" name="flags.autumn-woods-pile.healingDice" value="${currentDice}" data-dtype="String"/>
-      <p class="notes">Dice formula (e.g. 1d6, 2d4+1). Rolled only if weapon has Lifesteal.</p>
-    </div>`;
-  propSection.append(healField);
-  */
+
+  // Dealing Dice Field
+  let healDiceField = document.createElement("div");
+  healDiceField.className = "form-group split-group";
+  healDiceField.innerHTML =`
+      <label>Lifesteal</label>
+      <div class="form-fields">
+          <div class="form-group label-top">
+              <label>Attunement</label>
+              <div class="form-fields">
+                  <dnd5e-checkbox name="system.attuned" checked="" data-tooltip="DND5E.Attuned" aria-label="Attuned" tabindex="0"></dnd5e-checkbox>
+                  <select name="system.attunement"><option value="">Attunement Not Required</option><option value="required" selected="">Attunement Required</option><option value="optional">Optional Attunement</option></select>
+              </div>
+          </div>
+          <div class="form-group label-top"><label>Bonus</label><div class="form-fields"><input type="number" name="system.magicalBonus" value="1" min="0" step="1" placeholder="0"></div></div>
+      </div>`
+  propSection.appendChild(healDiceField);
+
+  // // Healing Dice input
+  // const healField = `
+  //   <div class="form-group">
+  //     <label>Healing Dice</label>
+  //     <input type="text" name="flags.autumn-woods-pile.healingDice" value="${currentDice}" data-dtype="String"/>
+  //     <p class="notes">Dice formula (e.g. 1d6, 2d4+1). Rolled only if weapon has Lifesteal.</p>
+  //   </div>`;
+  // propSection.append(healField);
 });
