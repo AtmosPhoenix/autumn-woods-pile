@@ -75,16 +75,15 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   //if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
 
   // Lifesteal checkbox
-  const lifestealHTML = `
-    <div>
+  let lifestealHTML =document.createElement("div");
+  lifestealHTML.innerHTML = `
     <h1>AUTUMN DID IT BITCH!!!</h1>
     <div class="form-group">
       <label class="checkbox">
         <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
         Lifesteal
       </label>
-    </div>
-    </div>`;
+    </div>;`
   detailsSection.appendChild(lifestealHTML);
 
   // Healing Dice input
