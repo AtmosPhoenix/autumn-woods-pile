@@ -35,6 +35,13 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
 
   // Attempt to find the properties container
   let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
+  if (propSection) {
+    console.log("Found properties container");
+    console.log(propSection);
+  }
+  else {
+    console.error("Could not find properties container");
+  }
   if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
 
   // Lifesteal checkbox
