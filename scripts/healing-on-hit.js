@@ -1,6 +1,7 @@
 Hooks.once("init", () => {
   // Register module flag scope
   CONFIG.healingOnHit = true; // optional marker
+  console.warn("===================== AUTUMWOODS INIT =====================");
   console.log("AWP: Healing on Hit | Initializing module flags");
 
   // Register flag for healing dice
