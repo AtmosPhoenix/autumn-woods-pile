@@ -27,11 +27,16 @@ Hooks.on("dnd5e.rollDamage", async (item, roll, targets) => {
 });
 
 Hooks.on("renderItemSheet5e", (app, html, data) => {
+  console.log("===================== AUTUMWOODS RENDER ITEM SHEET =====================");
+
   if (!app?.object || app.object.type !== "weapon") return;
+  console.log("found weapon ok")
 
   const item = app.object;
   const currentDice = item.getFlag("healing-on-hit", "healingDice") || "";
   const lifestealChecked = item.system.properties?.lifesteal ? "checked" : "";
+
+  console.log(item)
 
   // Attempt to find the properties container
   let propSection = html.find("input[name='system.properties.fin']").closest(".form-group").parent();
