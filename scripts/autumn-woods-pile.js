@@ -135,6 +135,11 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     // Append Lifesteal Config after the damage section
     const notDamageSection = detailsSection.getElementsByTagName("fieldset")[3];
     detailsSection.insertBefore(lifestealCfgHtml, notDamageSection);
+  } else {
+    let debugHtml = document.createElement("h2");
+    debugHtml.innerhtml = "LIFESTEAL BROKEN WAWAWA"
+    const notDamageSection = detailsSection.getElementsByTagName("fieldset")[3];
+    detailsSection.insertBefore(debugHtml, notDamageSection);
   }
 
   // // Healing Dice input
