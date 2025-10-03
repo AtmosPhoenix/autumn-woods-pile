@@ -103,6 +103,8 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     </dnd5e-checkbox>
     <span>Lifesteal</span>
   `
+  boxes.appendChild(newCheckbox);
+  /* TODO: fix by using HtmlCollection with Array.from()
   newCheckbox.className = "checkbox";
   newBoxes.appendChild(newCheckbox);
   let childBoxes = newBoxes.getElementsByTagName("div");
@@ -110,7 +112,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   newBoxes.replaceChildren(childBoxes.children);
   propSection.replaceChild(newBoxes, boxes);
   // Dealing Dice Field
-
+  */
   // Lifesteal Config
   let lifestealCfgHtml = document.createElement("fieldset");
   // <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>
