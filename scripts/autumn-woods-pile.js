@@ -76,6 +76,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   }
   //if (!propSection || propSection.length === 0) propSection = html.find(".sheet-body");
 
+  // TODO WHY IS THIS NOT UPDATING THE VAR AND TRIGGERING A PAGE REFRESH?
   // Lifesteal checkbox
   let newCheckbox = document.createElement("label");
   newCheckbox.innerHTML = `
@@ -103,6 +104,9 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     </dnd5e-checkbox>
     <span>Lifesteal</span>
   `
+  newCheckbox.addEventListener('change', async (event) => {
+    console.log(event);
+  })
   boxes.appendChild(newCheckbox);
   /* TODO: fix by using HtmlCollection with Array.from()
   newCheckbox.className = "checkbox";
