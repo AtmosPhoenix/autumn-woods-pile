@@ -105,8 +105,8 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     <span>Lifesteal</span>
   `
   newCheckbox.addEventListener('change', async (event) => {
-    console.log(event);
-    console.log(event.target.checked);
+    const checked = event.target.checked;
+    await item.update({"system.properties.lifesteal": checked});
   })
   boxes.appendChild(newCheckbox);
   /* TODO: fix by using HtmlCollection with Array.from()
