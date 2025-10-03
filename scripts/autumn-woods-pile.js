@@ -114,26 +114,28 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   // Dealing Dice Field
   */
   // Lifesteal Config
-  let lifestealCfgHtml = document.createElement("fieldset");
-  // <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>
-  // <input type="text" name="system.damage.base.custom.formula" value="1d8+2 + @abilities.str.mod" disabled="">
-  lifestealCfgHtml.innerHTML = `
-    <legend>Lifesteal</legend>
-    <div class="form-fields">
-      <p class="hint">Intrinsic healing dice from the weapon.</p>
-    </div>
-    <div class="form-group split-group">
-      <label>Formula</label>
-      <div class="form-fields">  
-        <dnd5e-checkbox name="" checked="" tabindex="0" disabled=""></dnd5e-checkbox>  
-        <input type="text" name="" value="1d8+2 + @abilities.str.mod" disabled="">
+  const isLifesteal = item.system.properties?.lifesteal ?? false;
+  if (isLifesteal) {
+    let lifestealCfgHtml = document.createElement("fieldset");
+    // <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>
+    // <input type="text" name="system.damage.base.custom.formula" value="1d8+2 + @abilities.str.mod" disabled="">
+    lifestealCfgHtml.innerHTML = `
+      <legend>Lifesteal</legend>
+      <div class="form-fields">
+        <p class="hint">Intrinsic healing dice from the weapon.</p>
       </div>
-    </div>
-  `
-
-  // Append Lifesteal Config after the damage section
-  const notDamageSection = detailsSection.getElementsByTagName("fieldset")[3];
-  detailsSection.insertBefore(lifestealCfgHtml, notDamageSection);
+      <div class="form-group split-group">
+        <label>Formula</label>
+        <div class="form-fields">  
+          <dnd5e-checkbox name="" checked="" tabindex="0" disabled=""></dnd5e-checkbox>  
+          <input type="text" name="" value="1d8+2 + @abilities.str.mod" disabled="">
+        </div>
+      </div>
+    `
+  }
+    // Append Lifesteal Config after the damage section
+    const notDamageSection = detailsSection.getElementsByTagName("fieldset")[3];
+    detailsSection.insertBefore(lifestealCfgHtml, notDamageSection);
 
   // // Healing Dice input
   // const healField = `
