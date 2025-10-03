@@ -114,26 +114,29 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
       <label class="checkbox">
         <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
         Lifesteal
+        
       </label>
     </div>;`
   detailsSection.appendChild(lifestealHTML);
 
   // Dealing Dice Field
-  let healDiceField = document.createElement("div");
-  healDiceField.className = "form-group split-group";
-  healDiceField.innerHTML =`
-    <label>Lifesteal</label>
+
+  // Lifesteal Config
+  let lifestealCfgHtml = document.createElement("fieldset");
+  detailsSection.appendChild(lifestealCfgHtml);
+  lifestealCfgHtml.innerHTML = `
+    <legend>Lifesteal</legend>
     <div class="form-fields">
-      <div class="form-group label-top">
-        <label>Attunement</label>
-        <div class="form-fields">
-          <dnd5e-checkbox name="system.attuned" checked="" data-tooltip="DND5E.Attuned" aria-label="Attuned" tabindex="0"></dnd5e-checkbox>
-          <select name="system.attunement"><option value="">Attunement Not Required</option><option value="required" selected="">Attunement Required</option><option value="optional">Optional Attunement</option></select>
-        </div>
+      <p class="hint">Intrinsic healing dice from the weapon.</p>
+    </div>
+    <div class="form-group split-group">
+      <label>Formula</label>
+      <div class="form-fields">  
+        <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>  
+        <input type="text" name="system.damage.base.custom.formula" value="1d8+2 + @abilities.str.mod" disabled="">
       </div>
-      <div class="form-group label-top"><label>Bonus</label><div class="form-fields"><input type="number" name="system.magicalBonus" value="1" min="0" step="1" placeholder="0"></div></div>
-    </div>`
-  propSection.appendChild(healDiceField);
+    </div>
+  `
 
   // // Healing Dice input
   // const healField = `
