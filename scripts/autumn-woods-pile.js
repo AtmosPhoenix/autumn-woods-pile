@@ -104,6 +104,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   `
   newCheckbox.className = "checkbox";
   boxes.appendChild(newCheckbox);
+  boxes.sort((a, b) => a.getElementsByTagName("span")[0].innerHTML.toLowerCase() > b.getElementsByTagName("span")[0].innerHTML.toLowerCase() ? 1 : -1)
   // Dealing Dice Field
 
   // Lifesteal Config
