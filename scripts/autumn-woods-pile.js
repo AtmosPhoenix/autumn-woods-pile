@@ -108,6 +108,8 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
 
   // Lifesteal Config
   let lifestealCfgHtml = document.createElement("fieldset");
+  // <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>
+  // <input type="text" name="system.damage.base.custom.formula" value="1d8+2 + @abilities.str.mod" disabled="">
   lifestealCfgHtml.innerHTML = `
     <legend>Lifesteal</legend>
     <div class="form-fields">
@@ -116,8 +118,8 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     <div class="form-group split-group">
       <label>Formula</label>
       <div class="form-fields">  
-        <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>  
-        <input type="text" name="system.damage.base.custom.formula" value="1d8+2 + @abilities.str.mod" disabled="">
+        <dnd5e-checkbox name="" checked="" tabindex="0" disabled=""></dnd5e-checkbox>  
+        <input type="text" name="" value="1d8+2 + @abilities.str.mod" disabled="">
       </div>
     </div>
   `
