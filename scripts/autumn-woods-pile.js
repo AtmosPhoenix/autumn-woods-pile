@@ -108,7 +108,6 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
 
   // Lifesteal Config
   let lifestealCfgHtml = document.createElement("fieldset");
-  detailsSection.appendChild(lifestealCfgHtml);
   lifestealCfgHtml.innerHTML = `
     <legend>Lifesteal</legend>
     <div class="form-fields">
@@ -122,6 +121,10 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
       </div>
     </div>
   `
+
+  // Append Lifesteal Config after the damage section
+  const notDamageSection = detailsSection.getElementsByTagName("fieldset")[3];
+  detailsSection.insertBefore(lifestealCfgHtml, notDamageSection);
 
   // // Healing Dice input
   // const healField = `
