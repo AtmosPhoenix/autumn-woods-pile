@@ -67,6 +67,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   let detailsSection = contentSection.getElementsByTagName("section")[3]; // YEAH I KNOWWWW KILL ME
   let propSection = detailsSection.getElementsByClassName("checkbox-grid")[0];
   let boxes = propSection.getElementsByTagName("div")[0]; // HEHE THE AI IS MOULDING TO MEEEEE
+  let newBoxes = boxes;
   if (propSection) {
     console.log("OwO is that the props section???!!!! WIT DA CHEKKKNBOWXESSSS????");
   }
@@ -103,8 +104,11 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     <span>Lifesteal</span>
   `
   newCheckbox.className = "checkbox";
-  boxes.appendChild(newCheckbox);
-  boxes.sort((a, b) => a.getElementsByTagName("span")[0].innerHTML.toLowerCase() > b.getElementsByTagName("span")[0].innerHTML.toLowerCase() ? 1 : -1)
+  newBoxes.appendChild(newCheckbox);
+  let childBoxes = newBoxes.getElementsByTagName("div");
+  childBoxes.sort((a, b) => a.getElementsByTagName("span")[0].innerHTML.toLowerCase() > b.getElementsByTagName("span")[0].innerHTML.toLowerCase() ? 1 : -1)
+  newBoxes.replaceChildren(childBoxes.children);
+  propSection.replaceChild(newBoxes, boxes);
   // Dealing Dice Field
 
   // Lifesteal Config
