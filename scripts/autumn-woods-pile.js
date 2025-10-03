@@ -115,6 +115,8 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   */
   // Lifesteal Config
   const isLifesteal = item.system.properties?.lifesteal ?? false;
+  console.log("RE-RENDERRRR")
+  console.log(isLifesteal);
   if (isLifesteal) {
     let lifestealCfgHtml = document.createElement("fieldset");
     // <dnd5e-checkbox name="system.damage.base.custom.enabled" checked="" tabindex="0" disabled=""></dnd5e-checkbox>
