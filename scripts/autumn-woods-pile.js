@@ -137,7 +137,7 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
     detailsSection.insertBefore(lifestealCfgHtml, notDamageSection);
   } else {
     let debugHtml = document.createElement("h2");
-    debugHtml.innerhtml = "LIFESTEAL BROKEN WAWAWA"
+    debugHtml.innerText = "Lifesteal is disabled HUEHUEHUE";
     const notDamageSection = detailsSection.getElementsByTagName("fieldset")[3];
     detailsSection.insertBefore(debugHtml, notDamageSection);
   }
