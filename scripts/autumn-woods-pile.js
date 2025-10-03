@@ -104,21 +104,6 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   `
   newCheckbox.className = "checkbox";
   boxes.appendChild(newCheckbox);
-
-  // let her be insane for a bit pleasE?
-  let lifestealHTML =document.createElement("div");
-  lifestealHTML.innerHTML = `
-    <h1>AUTUMN DID IT BITCH!!!</h1>
-    <p>Code Witch (tm)</p>
-    <div class="form-group">
-      <label class="checkbox">
-        <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
-        Lifesteal
-        
-      </label>
-    </div>;`
-  detailsSection.appendChild(lifestealHTML);
-
   // Dealing Dice Field
 
   // Lifesteal Config
@@ -146,4 +131,20 @@ Hooks.on("renderItemSheet5e", (app, html, data) => {
   //     <p class="notes">Dice formula (e.g. 1d6, 2d4+1). Rolled only if weapon has Lifesteal.</p>
   //   </div>`;
   // propSection.append(healField);
+
+  // let her be insane for a bit pleasE?
+  let lifestealHTML =document.createElement("div");
+  lifestealHTML.innerHTML = `
+    <h1>AUTUMN DID IT BITCH!!!</h1>
+    <p>Code Witch (tm)</p>
+    <p>I WILL NOT GET RID OF IT MUAHAHAHAH</p>
+    <div class="form-group">
+      <label class="checkbox">
+        <input type="checkbox" name="system.properties.lifesteal" ${lifestealChecked}/>
+        Lifesteal
+        
+      </label>
+    </div>;`
+  detailsSection.appendChild(lifestealHTML);
+
 });
