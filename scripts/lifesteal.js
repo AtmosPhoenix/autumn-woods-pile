@@ -129,12 +129,12 @@ class LifestealInterface {
   }
 
   static onRenderItemSheet(app, html, data) {
-    const weaponDocument = app.document;
-    if (weaponDocument.type !== "weapon") return;
+    const item = app.document;
+    if (item.type !== "weapon") return;
 
     // Check if the stuff is there...
-    console.log(weaponDocument.system.properties);
-    console.log(weaponDocument.system.properties?.lifesteal)
+    console.log(item.system.properties);
+    console.log(item.system.properties?.lifesteal)
 
     // If the item has the lifesteal property active, draw the lifesteal section.
     if (itemHasLifestealProperty(item)) {
