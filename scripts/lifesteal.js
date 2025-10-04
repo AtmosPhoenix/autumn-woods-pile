@@ -2,7 +2,11 @@
 // noinspection JSUnresolvedReference
 
 function addLifestealProperty() {
-  CONFIG.DND5E.weaponProperties['lifesteal'] = "Lifesteal";
+  if (CONFIG.DND5E && CONFIG.DND5E.weaponProperties) {
+    CONFIG.DND5E.weaponProperties[AutumnWoodsPile.FLAGS.LIFESTEAL] = AutumnWoodsPile.FLAGS.LIFESTEAL;
+  } else {
+    console.warn('AutumnWoods Pile | DND5E weapon properties not found');
+  }
 }
 
 function itemHasLifestealProperty(item) {
@@ -129,8 +133,8 @@ class LifestealInterface {
     if (weaponDocument.type !== "weapon") return;
 
     // Check if the stuff is there...
-    console.log(system.properties);
-    console.log(system.properties?.lifesteal)
+    console.log(weaponDocument.system.properties);
+    console.log(weaponDocument.system.properties?.lifesteal)
 
     // If the item has the lifesteal property active, draw the lifesteal section.
     if (itemHasLifestealProperty(item)) {
@@ -152,5 +156,5 @@ class LifestealInterface {
   }
 }
 
-Hooks.on('ready', addLifestealProperty);
+Hooks.on('setup', addLifestealProperty);
 Hooks.on('renderItemSheet5e', LifestealInterface.onRenderItemSheet);
