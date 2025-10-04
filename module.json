@@ -11,6 +11,17 @@
   },
   "description": "",
   "scripts": [
-    "scripts/autumn-woods-pile.js"
+    "scripts/autumn-woods-pile.js",
+    "scripts/lifesteal.js"
+  ],
+  "styles": [
+    "styles/autumn-woods-pile.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "english",
+      "path": "languages/en.json"
+    }
   ]
 }
